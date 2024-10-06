@@ -1,0 +1,36 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+
+
+  <p>Please select your age:</p>
+  <input type="radio" id="age1" name="age" value="30" @oninput="HandleInputTextInput">
+  <label for="age1">0 - 30</label><br>
+  <input type="radio" id="age2" name="age" value="60">
+  <label for="age2">31 - 60</label><br>  
+  <input type="radio" id="age3" name="age" value="100">
+  <label for="age3">61 - 100</label><br><br>
+  <input type="submit" value="Submit">
+
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+
+@code {
+    private InputModel Input { get; } = new();
+    
+    private void HandleInputTextInput(ChangeEventArgs e)
+    {
+        Input.Text = e.Value as string;
+    }
+    
+    public class InputModel
+    {
+        public string? Text { get; set; }
+    }
+}
